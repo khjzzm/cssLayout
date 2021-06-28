@@ -1,0 +1,33 @@
+{
+  "name": "csslayout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/cli": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.4.4",
+    "babel-preset-minify": "^0.5.1",
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "5.0.0"
+  },
+  "scripts": {
+    "dev": "gulp dev",
+    "build": "babel ./src/js -d ./dist/lib -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khjzzm/cssLayout.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khjzzm/cssLayout/issues"
+  },
+  "homepage": "https://github.com/khjzzm/cssLayout#readme"
+}
