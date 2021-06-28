@@ -1,16 +1,10 @@
-import gulp from "gulp";
+'use strict';
 import del from "del";
-import sass from "gulp-sass";
 import minify from "gulp-csso";
 import autoprefixer from "gulp-autoprefixer";
 
-// let gulp = require('./gulp.js');
-// let del = require('./del.js');
-// let sass = require('./gulp-sass.js');
-// let minify = require('./gulp-csso.js');
-// let autoprefixer = require('./gulp-autoprefixer.js');
-
-sass.compiler = require("node-sass");
+let gulp = require('gulp');
+let sass = require('gulp-sass')(require('node-sass'));
 
 const routes = {
     css: {

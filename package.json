@@ -4,21 +4,23 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@babel/core": "^7.4.5",
     "@babel/cli": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
     "babel-preset-minify": "^0.5.1",
+    "typescript": "^4.3.4",
     "del": "^4.1.1",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^6.1.0",
     "gulp-csso": "^3.0.1",
-    "gulp-sass": "^4.0.2",
-    "node-sass": "5.0.0"
+    "gulp-sass": "5.0.0",
+    "node-sass": "^6.0.1"
   },
   "scripts": {
     "dev": "gulp dev",
-    "build": "babel ./src/js -d ./dist/lib -w"
+    "build": "babel ./src/js -d ./dist/lib -w",
+    "prestart": "tsc"
   },
   "repository": {
     "type": "git",
