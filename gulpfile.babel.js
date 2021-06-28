@@ -21,17 +21,17 @@ const routes = {
 };
 
 const styles = () =>
-gulp
-    .src(routes.css.src)
-    .pipe(sass().on("error", sass.logError))
-    .pipe(
-        autoprefixer({
-            flexbox: true,
-            grid: "autoplace"
-        })
-    )
-    .pipe(minify())
-    .pipe(gulp.dest(routes.css.dest));
+    gulp
+        .src(routes.css.src)
+        .pipe(sass().on("error", sass.logError))
+        .pipe(
+            autoprefixer({
+                flexbox: true,
+                grid: "autoplace"
+            })
+        )
+        .pipe(minify())
+        .pipe(gulp.dest(routes.css.dest));
 
 const watch = () => {
     gulp.watch(routes.css.watch, styles);
