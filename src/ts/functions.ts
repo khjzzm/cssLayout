@@ -14,7 +14,7 @@ function printName(firstName: string, lastName?: string){
 }
 
 //Default parameter
-function printMessage(message: string 'default message'){
+function printMessage(message: string  = 'default message'){
     console.log(message);
 }
 

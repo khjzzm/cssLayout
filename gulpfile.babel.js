@@ -1,16 +1,23 @@
 'use strict';
+import gulp from "gulp"
 import del from "del";
+import ws from "gulp-webserver";
 import minify from "gulp-csso";
 import autoprefixer from "gulp-autoprefixer";
 
-let gulp = require('gulp');
-let sass = require('gulp-sass')(require('node-sass'));
+let sass = require('gulp-sass')(require('dart-sass'));
 
 const routes = {
     css: {
         watch: "src/scss/*",
-        src: "src/scss/styles.scss",
+        src: "src/scss/*.scss",
         dest: "dist/css"
+    },
+    js :{
+
+    },
+    assert : {
+
     }
 };
 
@@ -27,16 +34,22 @@ const styles = () =>
         .pipe(minify())
         .pipe(gulp.dest(routes.css.dest));
 
+const webServer = () =>{
+    gulp
+        .src("public")
+        .pipe(ws({livereload: true, open: true}))
+}
+
 const watch = () => {
     gulp.watch(routes.css.watch, styles);
 };
 
-const clean = () => del(["dist/styles.css"]);
+const clean = () => del(["dist/css", "dist/js"]);
 
 const prepare = gulp.series([clean]);
 
 const assets = gulp.series([styles]);
 
-const live = gulp.parallel([watch]);
+const postDev = gulp.series([webServer, watch]);
 
-export const dev = gulp.series([prepare, assets, live]);
+export const dev = gulp.series([prepare, assets, postDev]);

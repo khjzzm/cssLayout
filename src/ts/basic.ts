@@ -1,4 +1,4 @@
-const num:number = 1
+const num:number = 1;
 
 const str:string = 'hello';
 
