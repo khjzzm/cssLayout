@@ -12,16 +12,16 @@
     }
     type LoginState = SuccessState | FailState
 
-    function login(id: string, password: string): Promise<LoginState> {
+    function login(id: string, password: string): LoginState {
         return {
-            result: 'success';
+            result: 'success',
             response: {
                 body: 'logged in!'
             }
         }
     }
 
-    function printLoginState(state: LoginState) {
+    function printLoginState2(state: LoginState) {
         if (state.result === 'success') {
             console.log(`${state.response.body}`);
         } else {

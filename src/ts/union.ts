@@ -9,7 +9,7 @@
 
     move('down');
 
-//-------
+    //------------------
     type SuccessState = {
         response: {
             body: string;
@@ -21,11 +21,11 @@
     }
     type LoginState = SuccessState | FailState
 
-    function loginTest(id: string, password: string): Promise<LoginState> {
+    function loginTest(id: string, password: string): LoginState {
         return {
             response: {
-                body: 'logged in!'
-            }
+                body: 'logged in!',
+            },
         }
     }
 

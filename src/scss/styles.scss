@@ -1,5 +1,8 @@
+@import "_reset";
+@import "_variables";
+
 .box {
-  background: aqua;
+  background: $bg;
 }
 
 .grid-container {
