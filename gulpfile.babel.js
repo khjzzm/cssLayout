@@ -5,20 +5,27 @@ import ws from "gulp-webserver";
 import image from "gulp-image";
 import autoprefixer from "gulp-autoprefixer";
 import minify from "gulp-csso";
+import bro from "gulp-bro";
+import babelify from "babelify";
+import uglifyify from "uglifyify";
 
 let sass = require('gulp-sass')(require('dart-sass'));
 
 const routes = {
     css: {
         watch: "src/scss/**/*.scss",
-        src: "src/scss/styles.scss",
+        src: ["src/scss/styles.scss"],
         dest: "dist/css"
     },
     img: {
         src: "src/img/*",
         dest: "dist/img"
     },
-    assert: {}
+    js: {
+        watch: "src/js/**/*.js",
+        src: "src/js/*",
+        dest: "dist/js"
+    }
 };
 
 const styles = () =>
@@ -41,6 +48,18 @@ const img = async () => {
         .pipe(gulp.dest(routes.img.dest));
 }
 
+const js = async () => {
+    gulp.src(routes.js.src)
+        .pipe(bro({
+            transform: [
+                babelify.configure({presets: ['@babel/preset-env']}),
+                ['uglifyify', {global: true}]
+            ]
+        }))
+        .pipe(gulp.dest(routes.js.dest));
+}
+
+
 const webServer = () => {
     gulp
         .src("public")
@@ -50,13 +69,14 @@ const webServer = () => {
 const watch = () => {
     gulp.watch(routes.css.watch, styles);
     gulp.watch(routes.img.src, img);
+    gulp.watch(routes.js.watch, js);
 };
 
 const clean = () => del(["dist/css", "dist/js"]);
 
 const prepare = gulp.parallel([clean, img]);
 
-const assets = gulp.series([styles]);
+const assets = gulp.parallel([styles, js]);
 
 const live = gulp.parallel([webServer, watch]);
 
