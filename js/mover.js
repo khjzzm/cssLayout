@@ -1,0 +1,31 @@
+(function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+function _assertThisInitialized(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return e}module.exports=_assertThisInitialized,module.exports.default=module.exports,module.exports.__esModule=!0;
+
+},{}],2:[function(require,module,exports){
+function _classCallCheck(e,l){if(!(e instanceof l))throw new TypeError("Cannot call a class as a function")}module.exports=_classCallCheck,module.exports.default=module.exports,module.exports.__esModule=!0;
+
+},{}],3:[function(require,module,exports){
+function _defineProperties(e,r){for(var o=0;o<r.length;o++){var t=r[o];t.enumerable=t.enumerable||!1,t.configurable=!0,"value"in t&&(t.writable=!0),Object.defineProperty(e,t.key,t)}}function _createClass(e,r,o){return r&&_defineProperties(e.prototype,r),o&&_defineProperties(e,o),e}module.exports=_createClass,module.exports.default=module.exports,module.exports.__esModule=!0;
+
+},{}],4:[function(require,module,exports){
+function _getPrototypeOf(e){return module.exports=_getPrototypeOf=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)},module.exports.default=module.exports,module.exports.__esModule=!0,_getPrototypeOf(e)}module.exports=_getPrototypeOf,module.exports.default=module.exports,module.exports.__esModule=!0;
+
+},{}],5:[function(require,module,exports){
+var setPrototypeOf=require("./setPrototypeOf.js");function _inherits(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function");e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&setPrototypeOf(e,t)}module.exports=_inherits,module.exports.default=module.exports,module.exports.__esModule=!0;
+
+},{"./setPrototypeOf.js":8}],6:[function(require,module,exports){
+function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}module.exports=_interopRequireDefault,module.exports.default=module.exports,module.exports.__esModule=!0;
+
+},{}],7:[function(require,module,exports){
+var _typeof=require("@babel/runtime/helpers/typeof").default,assertThisInitialized=require("./assertThisInitialized.js");function _possibleConstructorReturn(e,t){return!t||"object"!==_typeof(t)&&"function"!=typeof t?assertThisInitialized(e):t}module.exports=_possibleConstructorReturn,module.exports.default=module.exports,module.exports.__esModule=!0;
+
+},{"./assertThisInitialized.js":1,"@babel/runtime/helpers/typeof":9}],8:[function(require,module,exports){
+function _setPrototypeOf(e,o){return module.exports=_setPrototypeOf=Object.setPrototypeOf||function(e,o){return e.__proto__=o,e},module.exports.default=module.exports,module.exports.__esModule=!0,_setPrototypeOf(e,o)}module.exports=_setPrototypeOf,module.exports.default=module.exports,module.exports.__esModule=!0;
+
+},{}],9:[function(require,module,exports){
+function _typeof(o){return"function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?(module.exports=_typeof=function(o){return typeof o},module.exports.default=module.exports,module.exports.__esModule=!0):(module.exports=_typeof=function(o){return o&&"function"==typeof Symbol&&o.constructor===Symbol&&o!==Symbol.prototype?"symbol":typeof o},module.exports.default=module.exports,module.exports.__esModule=!0),_typeof(o)}module.exports=_typeof,module.exports.default=module.exports,module.exports.__esModule=!0;
+
+},{}],10:[function(require,module,exports){
+"use strict";var _interopRequireDefault=require("@babel/runtime/helpers/interopRequireDefault"),_inherits2=_interopRequireDefault(require("@babel/runtime/helpers/inherits")),_possibleConstructorReturn2=_interopRequireDefault(require("@babel/runtime/helpers/possibleConstructorReturn")),_getPrototypeOf2=_interopRequireDefault(require("@babel/runtime/helpers/getPrototypeOf")),_classCallCheck2=_interopRequireDefault(require("@babel/runtime/helpers/classCallCheck")),_createClass2=_interopRequireDefault(require("@babel/runtime/helpers/createClass"));function _createSuper(e){var t=_isNativeReflectConstruct();return function(){var r,n=(0,_getPrototypeOf2.default)(e);if(t){var o=(0,_getPrototypeOf2.default)(this).constructor;r=Reflect.construct(n,arguments,o)}else r=n.apply(this,arguments);return(0,_possibleConstructorReturn2.default)(this,r)}}function _isNativeReflectConstruct(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(e){return!1}}var Mover=function(){function e(t){(0,_classCallCheck2.default)(this,e),this.color=t,this.elem=document.createElement("div"),this.elem.classList.add("mover","mover-".concat(t)),this.elem.style.background=t,this.elem.addEventListener("click",this.go),document.body.appendChild(this.elem),this.go()}return(0,_createClass2.default)(e,[{key:"go",value:function(e){var t;t=e?e.currentTarget:this.elem;var r=Math.random()*innerWidth*.9,n=Math.random()*innerHeight*.9;t.style.transform="translate3d(".concat(r,"px, ").concat(n,"px, 0)")}},{key:"getColor",get:function(){return this.color}},{key:"setColor",set:function(e){this.color=e,this.elem.style.background=e}}],[{key:"sayHello",value:function(){console.log("My name is Mover!!!!")}}]),e}(),FastMover=function(e){(0,_inherits2.default)(r,e);var t=_createSuper(r);function r(e){var n;return(0,_classCallCheck2.default)(this,r),(n=t.call(this,e)).elem.style.transitionDuration="0.3s",n}return r}(Mover);
+
+},{"@babel/runtime/helpers/classCallCheck":2,"@babel/runtime/helpers/createClass":3,"@babel/runtime/helpers/getPrototypeOf":4,"@babel/runtime/helpers/inherits":5,"@babel/runtime/helpers/interopRequireDefault":6,"@babel/runtime/helpers/possibleConstructorReturn":7}]},{},[10]);
