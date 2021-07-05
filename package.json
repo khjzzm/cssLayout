@@ -1,0 +1,48 @@
+{
+  "name": "csslayout",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khjzzm/cssLayout.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khjzzm/cssLayout/issues"
+  },
+  "homepage": "https://github.com/khjzzm/cssLayout#readme",
+  "scripts": {
+    "dev": "gulp dev",
+    "bulid": "gulp build",
+    "deploay": "gulp deploay",
+    "babel-build": "babel ./src/js -d ./dist/lib -w",
+    "check-types": "tsc",
+    "noed-sass": "node-sass src/scss/blueprint5.scss  ./dist/css/blueprint5.css"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.14.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-typescript": "^7.14.5",
+    "@babel/register": "^7.4.4",
+    "babelify": "^10.0.0",
+    "dart-sass": "^1.25.0",
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-bro": "^2.0.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-image": "^6.2.1",
+    "gulp-sass": "5.0.0",
+    "gulp-webserver": "^0.9.1",
+    "typescript": "^4.3.4",
+    "uglifyify": "^5.0.2"
+  }
+}
