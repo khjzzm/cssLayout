@@ -1,5 +1,6 @@
 'use strict';
 import gulp from "gulp"
+import gpug from "gulp-pug";
 import del from "del";
 import ws from "gulp-webserver";
 import image from "gulp-image";
@@ -13,6 +14,11 @@ import ghPages from "gulp-gh-pages";
 let sass = require('gulp-sass')(require('dart-sass'));
 
 const routes = {
+    pug: {
+        watch: "src/**/*.pug",
+        src: "src/*.pug",
+        dest: "dist"
+    },
     css: {
         watch: "src/scss/**/*.scss",
         src: ["src/scss/styles.scss"],
@@ -28,6 +34,12 @@ const routes = {
         dest: "dist/js"
     }
 };
+
+const pug = () =>
+    gulp
+        .src(routes.pug.src)
+        .pipe(gpug())
+        .pipe(gulp.dest(routes.pug.dest));
 
 const styles = () =>
     gulp
@@ -63,30 +75,36 @@ const js = async () => {
 
 const webServer = () => {
     gulp
-        .src("public")
+        .src("dist")
         .pipe(ws({livereload: true, open: true}))
 }
+
 
 const gh = async () => {
     gulp
         .src("dist/**/*")
-        .pipe(ghPages());
+        .pipe(ghPages({
+            branch: 'gh-pages',
+            repo: 'https://github.com/khjzzm/cssLayout.git'
+        }));
 }
 
 const watch = () => {
+    gulp.watch(routes.pug.watch, pug);
     gulp.watch(routes.css.watch, styles);
     gulp.watch(routes.img.src, img);
     gulp.watch(routes.js.watch, js);
 };
 
-const clean = () => del(["dist/css", "dist/js"]);
+
+const clean = () => del(["dist/", ".publish"]);
 
 const prepare = gulp.parallel([clean, img]);
 
-const assets = gulp.parallel([styles, js]);
+const assets = gulp.parallel([pug, styles, js]);
 
 const live = gulp.parallel([webServer, watch]);
 
 export const build = gulp.series([prepare, assets]);
 export const dev = gulp.series([build, live]);
-export const deploay =  gulp.series([build, gh])
+export const deploay =  gulp.series([build, gh, clean])
